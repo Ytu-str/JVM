@@ -8,7 +8,7 @@
 
 #### JVM跨语言的平台
 
-![JVM跨语言平台](D:\JVM\导图\JVM跨语言平台.png)
+![JVM跨语言平台](https://github.com/Ytu-str/JVM/tree/main/%E5%AF%BC%E5%9B%BE/JVM跨语言平台.png)
 
 #### JVM整体结构
 
