@@ -4,11 +4,11 @@
 
 #### 我们学习的大部分都是上层建筑 - 框架 已经封装好的
 
-![系统架构图](JVM/导图/系统架构图.png)
+![系统架构图](D:\JVM\导图\系统架构图.png)
 
 #### JVM跨语言的平台
 
-![JVM跨语言平台](https://github.com/Ytu-str/JVM/tree/main/%E5%AF%BC%E5%9B%BE/JVM跨语言平台.png)
+![JVM跨语言平台](D:\JVM\导图\JVM跨语言平台.png)
 
 #### JVM整体结构
 
