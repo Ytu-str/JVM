@@ -1,6 +1,6 @@
 ###  Java - 底层建筑 - JVM - 第八篇 - 堆
 
-![堆](D:\JVM\导图\堆.png)
+![堆](images/堆.png)
 
 - 每个**进程**拥有一个**JVM实例**
 - 一个JVM实例只存在一个堆内存，堆也是Java内存管理的核心区域
@@ -50,9 +50,9 @@ public class HeapDemo1 {
 
 ```
 
-![VisualVM1](D:\JVM\导图\VisualVM1.png)
+![VisualVM1](images/VisualVM1.png)
 
-![VisualVM2](D:\JVM\导图\VisualVM2.png)
+![VisualVM2](images/VisualVM2.png)
 
 <!--可以看到设置的堆大小总共为10M-->
 
@@ -82,9 +82,9 @@ public class SimpleHeap {
 
 - 对应的内存图
 
-![堆的核心概述](D:\JVM\导图\堆的核心概述.png)
+![堆的核心概述](images/堆的核心概述.png)
 
-![堆创建对象](D:\JVM\导图\堆创建对象.png)
+![堆创建对象](images/堆创建对象.png)
 
 ####  堆的内存细分
 
@@ -148,7 +148,7 @@ public class HeapSpaceInitial {
 
 ```
 
-![堆区使用状况](D:\JVM\导图\堆区使用状况.png)
+![堆区使用状况](images/堆区使用状况.png)
 
 - 在代码中我们会发现计算的结果不一致，那是因为 s0 和 s1 区在进行计算的时候，只使用了一个
 - 查询参数
@@ -201,7 +201,7 @@ class OomObject{
 - Java堆区进一步细分的话，可以划分为年轻代（YoungGen）和老年代（OldGen）
 - 其中年轻代又可以分为Eden空间，Survivor0空间和Survivor1空间（有时也叫from区和to区）
 
-![年轻代与老年代](D:\JVM\导图\年轻代与老年代.png)
+![年轻代与老年代](images/年轻代与老年代.png)
 
 - 下面的参数在开发中一般不会调整
   - Young：Old = 1：2
@@ -233,18 +233,18 @@ class OomObject{
   - 在养老区，相对悠闲，当养老区的内存不足的时候，再次触发GC：Major GC 进行养老区的内存清理
   - 如果养老区执行了Major GC之后依旧无法进行对象的保存，就会产生OOM异常
 
-![对象的分配过程1](D:\JVM\导图\对象的分配过程1.png)
+![对象的分配过程1](images/对象的分配过程1.png)
 
-![对象的分配过程2](D:\JVM\导图\对象的分配过程2.png)
+![对象的分配过程2](images/对象的分配过程2.png)
 
-![对象的分配过程3](D:\JVM\导图\对象的分配过程3.png)
+![对象的分配过程3](images/对象的分配过程3.png)
 
 **总结**
 
 - **针对幸存者s0，s1区的总结：复制之后有交换，谁空谁是to**
 - **关于垃圾回收：频繁在新生区收集，很少在养老区收集，几乎不在永久区/元空间收集**
 
-![对象分配特殊过程](D:\JVM\导图\对象分配特殊过程.png)
+![对象分配特殊过程](images/对象分配特殊过程.png)
 
 - 监控案例
 
@@ -269,7 +269,7 @@ public class HeapInstanceTest {
 }
 ```
 
-![VisualVM对象的分配过程](D:\JVM\导图\VisualVM对象的分配过程.png)
+![VisualVM对象的分配过程](images/VisualVM对象的分配过程.png)
 
 ####  常用的调优工具
 
@@ -301,7 +301,7 @@ public class HeapInstanceTest {
 - 因为Java对象大多都**具备朝生夕死**的特性，所以Minor GC 非常频繁，一般回收速度也很快，
 - Minor GC 会引发STW（Stop The World），暂停其他用户线程，等待垃圾回收结束，用户线程才恢复执行
 
-![对象分配图解](D:\JVM\导图\对象分配图解.png)
+![对象分配图解](images/对象分配图解.png)
 
 ##### 老年代GC（Major GC / Full GC）的触发机制
 
@@ -328,9 +328,9 @@ public class HeapInstanceTest {
   - 新生代：由Eden、两块大小相同的Survivor（又称from/to，s0/s1） 构成，to总为空
   - 老年代：存放新生代中经历多次GC依然存活的对象
 
-![堆空间分代思想](D:\JVM\导图\堆空间分代思想.png)
+![堆空间分代思想](images/堆空间分代思想.png)
 
-![堆空间分代思想2](D:\JVM\导图\堆空间分代思想2.png)
+![堆空间分代思想2](images/堆空间分代思想2.png)
 
 - 其实不分代也是完全可以的，分代的唯一理由就是**优化GC性能**，如果没有分代，那么所有的对象都在一起。GC的时候，就会对整堆进行全局扫描，然而很多对象都是朝生夕死 的，如果分代的话，把这些对象聚集在一起，GC先回收这部分，就会节省很多空间和资源
 
@@ -360,7 +360,7 @@ public class HeapInstanceTest {
   - 多线程同时分配内存的时候，使用TLAB可以避免一系列的非线程安全问题。同时还能提升内存分配的吞吐量，因此我们可以将这种内存分配方式称为 **快速分配策略**
   - 几乎所有的OpenJDK衍生出来的JVM都提供了TLAB设计
 
-![TLAB](D:\JVM\导图\TLAB.png)
+![TLAB](images/TLAB.png)
 
 - TLAB的再说明
 
@@ -371,7 +371,7 @@ public class HeapInstanceTest {
 
   **对象的分配过程**
 
-![对象的分配过程](D:\JVM\导图\对象的分配过程.png)
+![对象的分配过程](images/对象的分配过程.png)
 
 ####  小结堆空间的参数设置
 

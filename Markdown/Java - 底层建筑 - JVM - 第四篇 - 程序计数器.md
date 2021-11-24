@@ -2,12 +2,12 @@
 
 ####  PC Register 介绍
 
-![PC Register](D:\JVM\导图\PC Register.png)
+![PC Register](images/PC Register.png)
 
 - JVM中的程序计数寄存器（Program Counter Register）中，Register的命名源于CPU的寄存器，寄存器存储指令相关的线程信息。CPU只有把数据装载到寄存器才能够运行
 - 这里，并非广义上的所指的物理寄存器，或许将其翻译为PC计数器（或指令计数器）会更加的贴切（也称为程序钩子），并且也不容易引起一些不必要的误会。**JVM中的PC寄存器是对物理PC寄存器的一种抽象模拟**
 
-![PC寄存器作用](D:\JVM\导图\PC寄存器作用.png)
+![PC寄存器作用](images/PC寄存器作用.png)
 
 **作用**
 
@@ -62,7 +62,7 @@ public class PCRegister {
         28: return
 ```
 
-![编译文件解析](D:\JVM\导图\编译文件解析.png)
+![编译文件解析](images/编译文件解析.png)
 
 ####  两个常见问题
 

@@ -2,19 +2,19 @@
 
 ####  运行时数据区结构图
 
-![运行时数据区结构](D:\JVM\导图\运行时数据区结构.png)
+![运行时数据区结构](images/运行时数据区结构.png)
 
 ####  栈、堆、方法区之间的交互关系
 
 - 从线程是否共享来看
 
-![栈、堆、方法区交互关系--线程共享](D:\JVM\导图\栈、堆、方法区交互关系--线程共享.png)
+![栈、堆、方法区交互关系--线程共享](images/栈、堆、方法区交互关系--线程共享.png)
 
 - 从创建对象的角度来看
 
-![堆、栈、方法区关系--代码层面](D:\JVM\导图\堆、栈、方法区关系--代码层面.png)
+![堆、栈、方法区关系--代码层面](images/堆、栈、方法区关系--代码层面.png)
 
-![堆、栈、方法区关系2](D:\JVM\导图\堆、栈、方法区关系2.png)
+![堆、栈、方法区关系2](images/堆、栈、方法区关系2.png)
 
 ####  方法区的基本理解
 
@@ -33,7 +33,7 @@
 - 本质上。方法区和永久代并不等价。仅仅只堆Hotspot而言的。《Java虚拟机规范》对如何实现方法区。不做统一要求。
   - 现在看来，当年使用永久代，不是好的idea，导致Java程序更容易OOM（超过 -XX:MaxPermSize 上限）
 
-![HotSpot中方法区的演进](D:\JVM\导图\HotSpot中方法区的演进.png)
+![HotSpot中方法区的演进](images/HotSpot中方法区的演进.png)
 
 - 到了JDK8，终于完全废弃了永久代的概念，改用和JRockit、J9一样在本地内存中实现的元空间（Metaspace）
 - 元空间的本质和永久代类似，都是JVM规范中方法区的体现，不过元空间与永久代最大区别就是：**元空间不在虚拟机设置的内容中，而是使用本地内存**
@@ -48,7 +48,7 @@
   - **通过-XX:MaxPermSize 来设定永久代的最大可分配空间，32位机器默认时64M，64位机器默认是82M**
   - 当JVM加载的类的信息容量超过了这个值，就会抛出异常 java.lang.OutOfMemoryError:PermGen space
 
-![方法区大小](D:\JVM\导图\方法区大小.png)
+![方法区大小](images/方法区大小.png)
 
 - JDK8以及以后
   - 元数据区大小可以使用参数 -XX:MetaspaceSize 和 -XX:MaxMetaspaceSize 指定
@@ -94,7 +94,7 @@ public class OomTest extends ClassLoader {
 
 ```
 
-![方法区OOM](D:\JVM\导图\方法区OOM.png)
+![方法区OOM](images/方法区OOM.png)
 
 ####  如何解决OOM
 
@@ -104,13 +104,13 @@ public class OomTest extends ClassLoader {
 
 ####  方法区的内部结构
 
-![方法区内部结构](D:\JVM\导图\方法区内部结构.png)
+![方法区内部结构](images/方法区内部结构.png)
 
 ####  方法区存储什么？
 
 - 《深入理解Java虚拟机》书种对方法区（Method Area）存储的内容描述如下：它用户存储已经被虚拟机加载的**类型信息、常量、静态变量、即时编译器编译之后的代码缓存等**
 
-![方法区存储什么](D:\JVM\导图\方法区存储什么.png)
+![方法区存储什么](images/方法区存储什么.png)
 
 **类型信息**
 
@@ -186,7 +186,7 @@ class Order{
 - 要弄清楚方法区，需要理解清楚ClassFile，因为加载类的信息都在方法区
 - 要弄清楚方法区的运行时常量池，需要理解清楚ClassFile中的常量池
 
-![常量池](D:\JVM\导图\常量池.png)
+![常量池](images/常量池.png)
 
 - 一个有效的字节码文件除了包含类的版本信息、字段、方法以及接口等描述信息外，还包含一项信息那就是常量池表（Constant Pool Table） 还包括了各种字面量和对类型、域、方法的符号引用等
 
@@ -333,37 +333,37 @@ Constant pool:
 SourceFile: "MethodAreaDemo.java"
 ```
 
-![运行过程1](D:\JVM\导图\运行过程1.png)
+![运行过程1](images/运行过程1.png)
 
-![运行过程2](D:\JVM\导图\运行过程2.png)
+![运行过程2](images/运行过程2.png)
 
-![运行过程3](D:\JVM\导图\运行过程3.png)
+![运行过程3](images/运行过程3.png)
 
-![运行过程4](D:\JVM\导图\运行过程4.png)
+![运行过程4](images/运行过程4.png)
 
-![运行过程5](D:\JVM\导图\运行过程5.png)
+![运行过程5](images/运行过程5.png)
 
-![运行过程6](D:\JVM\导图\运行过程6.png)
+![运行过程6](images/运行过程6.png)
 
-![运行过程7](D:\JVM\导图\运行过程7.png)
+![运行过程7](images/运行过程7.png)
 
-![运行过程8](D:\JVM\导图\运行过程8.png)
+![运行过程8](images/运行过程8.png)
 
-![运行过程9](D:\JVM\导图\运行过程9.png)
+![运行过程9](images/运行过程9.png)
 
-![运行过程10](D:\JVM\导图\运行过程10.png)
+![运行过程10](images/运行过程10.png)
 
-![运行过程11](D:\JVM\导图\运行过程11.png)
+![运行过程11](images/运行过程11.png)
 
-![运行过程12](D:\JVM\导图\运行过程12.png)
+![运行过程12](images/运行过程12.png)
 
-![运行过程13](D:\JVM\导图\运行过程13.png)
+![运行过程13](images/运行过程13.png)
 
-![运行过程14](D:\JVM\导图\运行过程14.png)
+![运行过程14](images/运行过程14.png)
 
-![运行过程15](D:\JVM\导图\运行过程15.png)
+![运行过程15](images/运行过程15.png)
 
-![运行过程16](D:\JVM\导图\运行过程16.png)
+![运行过程16](images/运行过程16.png)
 
 ####  方法区的演进细节
 
@@ -374,11 +374,11 @@ SourceFile: "MethodAreaDemo.java"
   - JDK1.7 有永久代，但是已经逐步“去永久代”，字符串常量池、静态变量移除，保存在堆中
   - JDK1.8之后 无永久代。类型信息、字段、方法、常量保存在本地内存的元空间，但是字符串常量池、静态变量仍在堆
 
-![jdk6方法区](D:\JVM\导图\jdk6方法区.png)
+![jdk6方法区](images/jdk6方法区.png)
 
-![jdk7方法区](D:\JVM\导图\jdk7方法区.png)
+![jdk7方法区](images/jdk7方法区.png)
 
-![jdk8方法区](D:\JVM\导图\jdk8方法区.png)
+![jdk8方法区](images/jdk8方法区.png)
 
 ####  永久代为什么要被元空间替换
 
@@ -407,7 +407,7 @@ SourceFile: "MethodAreaDemo.java"
 - Hotspot虚拟机对常量池的回收策略是很明确的，**只要常量池中的常量没有被任何地方引用，就可以被回收**
 - 回收废弃常量与回收Java堆中的对象非常相似
 
-![方法区总结](D:\JVM\导图\方法区总结.png)
+![方法区总结](images/方法区总结.png)
 
 - 说一下JVM内存模型，有哪些区？分别是干嘛的
 - Java8的内存分代改进
@@ -428,5 +428,5 @@ static class Test{
 }
 ```
 
-<!--jdk1.7后静态变量staticObj随着Test类型信息存放在堆区，instanceObj随着Test的对象实例存放在堆区，localObj则存放在foo()方法栈帧的局部变量表中   new ObjectHolder(); new OnjectHolder(); new ObjectHoler();都是在堆区-->
+<!--jdk1.7后静态变量staticObj随着Class对象存放在堆区，instanceObj随着Test的对象实例存放在堆区，localObj则存放在foo()方法栈帧的局部变量表中   new ObjectHolder(); new OnjectHolder(); new ObjectHoler();都是在堆区-->
 

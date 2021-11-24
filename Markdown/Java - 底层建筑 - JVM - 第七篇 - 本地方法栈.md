@@ -1,6 +1,6 @@
 ###  Java - 底层建筑 - JVM - 第七篇 - 本地方法栈
 
-![本地方法栈](D:\JVM\导图\本地方法栈.png)
+![本地方法栈](images/本地方法栈.png)
 
 ####  本地方法栈 （Native Method Stack）
 
